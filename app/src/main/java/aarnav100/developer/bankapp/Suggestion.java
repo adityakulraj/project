@@ -1,10 +1,13 @@
 package aarnav100.developer.bankapp;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -32,25 +35,32 @@ public class Suggestion extends AppCompatActivity {
                 Log.d("TAG",databaseError.toString());
             }
         });
-        work();
     }
-    void work()
-    {
-//        Thread r=new Thread() {
-//            @Override
-//            public void run() {
-//                long t=System.currentTimeMillis();
-//                ImageView im=(ImageView)findViewById(R.id.pointer);
-//                while(System.currentTimeMillis()-t<5000) {
-//                    ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) im.getLayoutParams();
-//                    params.leftMargin = 10 + (int)System.currentTimeMillis()/100;
-//                }
-//
-//                TextView tv=(TextView)findViewById(R.id.status);
-//                tv.setText("Home Loan Score : 85%");
-//                ((LinearLayout)findViewById(R.id.end)).setVisibility(View.VISIBLE);
-//            }
-//        };
-//        r.run();
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        if(hasFocus){
+                final ImageView im=(ImageView)findViewById(R.id.pointer);
+            Animation slide =AnimationUtils.loadAnimation(Suggestion.this,R.anim.slide);
+            slide.setDuration(5000);
+            slide.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    TextView tv=(TextView)findViewById(R.id.status);
+                    tv.setText("Home Loan Score : 85%");
+                    ((LinearLayout)findViewById(R.id.end)).setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+            im.startAnimation(slide);
+        }
     }
 }
