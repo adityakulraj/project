@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <group android:checkableBehavior="single">
+            <item
+                android:id="@+id/nav_login"
+                android:title="Login" />
+            <item
+                android:id="@+id/nav_about"
+                android:title="About Us" />
+            <item android:id="@+id/nav_contact"
+                android:title="Contact Us"/>
+            <item android:id="@+id/nav_sug"
+                android:title="Loan Recommendations"/>
+            <item android:id="@+id/nav_map"
+                android:title="Offers around you"/>
+        </group>
+    </menu>
+
