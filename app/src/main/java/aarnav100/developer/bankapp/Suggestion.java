@@ -24,7 +24,7 @@ public class Suggestion extends AppCompatActivity {
         database.getReference("Customer/First_Customer").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.d("TAG",dataSnapshot.getValue().toString());
+                //dataSnapshot.getValue();
             }
 
             @Override
@@ -32,14 +32,25 @@ public class Suggestion extends AppCompatActivity {
                 Log.d("TAG",databaseError.toString());
             }
         });
-        ImageView im=(ImageView)findViewById(R.id.pointer);
-        long t=System.currentTimeMillis();
-        while(System.currentTimeMillis()-t<5000) {
-            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) im.getLayoutParams();
-            params.leftMargin = 10 + (int)System.currentTimeMillis()/100;
-        }
-        TextView tv=(TextView)findViewById(R.id.status);
-        tv.setText("Home Loan Score : 85%");
-        ((LinearLayout)findViewById(R.id.end)).setVisibility(View.VISIBLE);
+        work();
+    }
+    void work()
+    {
+//        Thread r=new Thread() {
+//            @Override
+//            public void run() {
+//                long t=System.currentTimeMillis();
+//                ImageView im=(ImageView)findViewById(R.id.pointer);
+//                while(System.currentTimeMillis()-t<5000) {
+//                    ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) im.getLayoutParams();
+//                    params.leftMargin = 10 + (int)System.currentTimeMillis()/100;
+//                }
+//
+//                TextView tv=(TextView)findViewById(R.id.status);
+//                tv.setText("Home Loan Score : 85%");
+//                ((LinearLayout)findViewById(R.id.end)).setVisibility(View.VISIBLE);
+//            }
+//        };
+//        r.run();
     }
 }
