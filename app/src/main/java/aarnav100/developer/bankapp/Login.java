@@ -67,7 +67,9 @@ public class Login extends AppCompatActivity {
                                         // the auth state listener will be notified and logic to handle the
                                         // signed in user can be handled in the listener.
                                         if (!task.isSuccessful()) {
-                                            Toast.makeText(Login.this, "Registeration Unsuccessful", Toast.LENGTH_SHORT).show();
+                                            {
+                                                Toast.makeText(Login.this, "Registeration Unsuccessful", Toast.LENGTH_SHORT).show();
+                                            }
                                         }
                                         else
                                             Toast.makeText(Login.this, "Login with id and password", Toast.LENGTH_SHORT).show();
@@ -77,5 +79,7 @@ public class Login extends AppCompatActivity {
                 }
             }
         };
+        regitser.setOnClickListener(ocl);
+        login.setOnClickListener(ocl);
     }
 }
